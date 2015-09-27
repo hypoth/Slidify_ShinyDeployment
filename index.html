@@ -43,14 +43,11 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Shiny</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <p>Shiny allows to deploy web application from R.
+This is one of easiest methods to deploy applications without much web development knowledge</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,10 +55,87 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Basic Elements</h2>
   </hgroup>
   <article data-timings="">
-    <p>test </p>
+    <p>For deploying application following are requirements.
+1. Install shiny libraries.
+2. Create two files 
+    a) server.R
+    b) ui.R
+One very simple shiny application can be accessed from 
+<a href="https://hypoth.shinyapps.io/shinyExp">https://hypoth.shinyapps.io/shinyExp</a></p>
+
+<p>Required code for server.R and ui.R is available at
+<a href="https://github.com/hypoth/shinyExp">https://github.com/hypoth/shinyExp</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Basic R files needed</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>server.R</h3>
+
+<p>This file is working to respond to various requests from client and process data based on these requests.</p>
+
+<p>There is some reactive code, which basically respond to every change in input from the client using application.</p>
+
+<h4>ui.R</h4>
+
+<p>This file shows the basic page which has to be presented to the user. Based on users actions on this page the server.R has to 
+respond with required data processing and possible reply to user.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Experimental shiny Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A small shiny applicatioin as deployed at <a href="https://hypoth.shinyapps.io/shinyExp">https://hypoth.shinyapps.io/shinyExp</a> to demonstrate basic working.</p>
+
+<h4>Purpose</h4>
+
+<p>This application show how random number generation function &#39;rnorm&#39; behave by generating 1000 random number for each user input.</p>
+
+<h4>UI</h4>
+
+<p>User interface has two sliders for selecting mean and sd to be supplied to rnorm function.
+based on this random numbers are generated.
+there is button to reset seed.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Basic R code on server.R</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">      generatedRandomNumbers &lt;- rnorm(1000, 0, 1)
+      hist(generatedRandomNumbers,probability=TRUE)
+      lines(density(generatedRandomNumbers),col=&quot;red&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Results shown  to user (client)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Once these numbers are generated, distribution of these is shown to user as highligheted by plot in previous slide. This application shows effect of changing sigma on distribution. Difference between expected and calculated mean and sd is also shown.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -73,14 +147,38 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Shiny'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Basic Elements'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Basic R files needed'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Experimental shiny Application'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Basic R code on server.R'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Results shown  to user (client)'>
+         6
       </a>
     </li>
   </ul>
